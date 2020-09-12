@@ -16,7 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ml-search/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@ml-search/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@ml-search/author": ["libs/author/src/index.ts"],
+      "@ml-search/item": ["libs/item/src/index.ts"],
+      "@ml-search/currencies": ["libs/currencies/src/index.ts"]
     },
     "allowSyntheticDefaultImports": true
   },

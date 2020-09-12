@@ -185,6 +185,84 @@
           }
         }
       }
+    },
+    "author": {
+      "root": "libs/author",
+      "sourceRoot": "libs/author/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/author/tsconfig.lib.json",
+              "libs/author/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/author/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/author/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "item": {
+      "root": "libs/item",
+      "sourceRoot": "libs/item/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/item/tsconfig.lib.json",
+              "libs/item/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/item/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/item/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "currencies": {
+      "root": "libs/currencies",
+      "sourceRoot": "libs/currencies/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/currencies/tsconfig.lib.json",
+              "libs/currencies/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/currencies/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/currencies/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

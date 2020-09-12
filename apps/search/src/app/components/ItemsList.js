@@ -1,3 +1,4 @@
+import { environment } from '../../environments/environment';
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavHeader from './Header';
@@ -11,7 +12,7 @@ function useQuery() {
 
 function ItemsList() {
   const [results, saveResults] = useState({
-    items: []
+    items: [],
   });
 
   const [query, setQuery] = useState(useQuery().get('search'));
@@ -20,11 +21,9 @@ function ItemsList() {
 
   const requestSearch = async () => {
     if (query?.length) {
-      const res = await fetch(
-        `https://api.mercadolibre.com/sites/MLA/search?q=${query}`
-      );
+      const res = await fetch(`${environment.api_url}/items?q=${query}`);
       const resJson = await res.json();
-      saveResults({ items: resJson.results || [] });
+      saveResults({ items: resJson.items || [] });
     }
   };
 
@@ -44,9 +43,9 @@ function ItemsList() {
       <div className="wrapper">
         <div className="categories">Categories > </div>
         <ol className="search-layout">
-          {items.map(item => (
+          {items.map((item) => (
             <li className="search-layout__item" key={item.id}>
-              <Item result={item}></Item>
+              <Item item={item}></Item>
             </li>
           ))}
         </ol>
