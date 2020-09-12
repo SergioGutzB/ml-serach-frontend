@@ -1,0 +1,44 @@
+@import '../scss/mixins.scss';
+
+.search-item {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: flex-start;
+  padding: 20px 0;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 604px;
+    padding-top: $element-padding;
+  }
+  &__title {
+    @include secondary-title();
+    width: 400px;
+  }
+
+  &__price {
+    @include primary-title();
+    display: flex;
+    align-items: center;
+    &__symbol {
+    }
+    &__amount {
+    }
+  }
+
+  &__state-address {
+    @include default-font($small-text);
+    margin-top: 25px;
+  }
+
+  &__condition {
+  }
+
+  &__shipping {
+    height: 20px;
+    margin-left: 10px;
+  }
+}

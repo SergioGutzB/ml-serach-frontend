@@ -1,0 +1,28 @@
+@import '../scss/variables';
+
+$border-offset: $element-padding * 2;
+
+.search-layout {
+  grid-column: col-start 2 / span 10;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: $border-radius;
+  overflow: hidden;
+  &__item {
+    width: 100%;
+    position: relative;
+    &::after {
+      content: '';
+      background-color: $base-background;
+      position: absolute;
+      bottom: 0px;
+      height: 1px;
+      width: calc(100% - #{$border-offset});
+      left: $border-offset / 2;
+    }
+  }
+}

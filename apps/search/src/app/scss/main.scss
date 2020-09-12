@@ -1,0 +1,75 @@
+@import './variables';
+
+body {
+  margin: 0;
+  color: $base-color;
+  background: $base-background;
+  font-family: Proxima Nova, -apple-system, Helvetica Neue, Helvetica, Roboto,
+    Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  grid-gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wrapper > * {
+  grid-column: col-start / span 12;
+}
+
+@media (min-width: 500px) {
+  .content {
+    grid-column: col-start 4 / span 9;
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.search-link {
+  text-decoration: none;
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.search-card {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  background-color: #fff;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
+  border: $border-radius;
+  &--thumbnail {
+    box-sizing: content-box;
+    width: 180px;
+    height: 180px;
+    padding: 0 $element-padding;
+  }
+}
+
+.search-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  &__element {
+    display: block;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
+}

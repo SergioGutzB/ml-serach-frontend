@@ -1,0 +1,26 @@
+@import '../scss/variables';
+
+.nav-header {
+  background-color: $yellow;
+}
+
+.nav-bounds {
+  align-items: center;
+}
+
+.nav-logo {
+  grid-column: col-start 2 / span 1;
+  max-width: 44px;
+  width: 44px;
+  height: 32px;
+  overflow: hidden;
+  text-indent: -999px;
+  background-image: url('/assets/Logo_ML.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.nav-search {
+  grid-column: col-start 3 / span 9;
+  margin-left: -20px;
+}

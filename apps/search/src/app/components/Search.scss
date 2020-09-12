@@ -1,0 +1,57 @@
+@import '../scss/variables';
+
+$height: 32px;
+$background-input: #fff;
+
+.nav-search {
+  padding: 8px 0px;
+  display: flex;
+  position: relative;
+}
+
+.nav-search-input {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  border: none;
+  color: $base-color;
+  border-radius: 2px;
+  width: 100%;
+  outline: none;
+  /* requirement is 18px but looks better with 16px */
+  font-size: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 14px;
+  padding-right: calc(10px + #{$height});
+  height: $height;
+}
+
+.nav-search-input::placeholder {
+  color: $light-gray;
+}
+
+.nav-search-btn {
+  position: absolute;
+  right: 0px;
+  border: none;
+  width: $height;
+  height: $height;
+  outline: none;
+}
+
+.nav-search-btn:hover {
+  cursor: pointer;
+}
+
+.nav-icon-search {
+  width: 15px;
+  height: 15px;
+  background-image: url('/assets/ic_Search.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+.nav-icon-search::before {
+  content: '';
+  vertical-align: top;
+}

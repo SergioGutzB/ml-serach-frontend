@@ -1,0 +1,38 @@
+@import './variables';
+@mixin default-font($size: 14px) {
+  margin: 0;
+  padding: 0;
+  font-family: Proxima Nova, -apple-system, Helvetica Neue, Helvetica, Roboto,
+    Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: $size;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+}
+
+@mixin primary-title($weight: 500) {
+  @include default-font();
+  font-size: $primary-title;
+  font-weight: $weight;
+  padding-bottom: $text-padding;
+}
+
+@mixin secondary-title() {
+  @include default-font();
+  font-size: $secondary-title;
+  padding-bottom: $text-padding;
+}
+
+@mixin section-title() {
+  @include default-font();
+  font-size: $section-title;
+  font-weight: 600;
+  padding-bottom: $text-padding;
+}
+
+@mixin paragraph {
+  @include default-font();
+  font-size: $paragraph;
+}
