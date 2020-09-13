@@ -4,6 +4,7 @@ import NavHeader from './Header';
 import Search from './Search';
 import { useLocation, useParams } from 'react-router-dom';
 import './ItemDetail.scss';
+import Breadcrumb from './Breadcrumb';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -47,7 +48,7 @@ function ItemDetail() {
       <NavHeader className="nav-header" data-test="nav-header-component">
         <Search className="nav-search"></Search>
       </NavHeader>
-      <div className="categories">Categories > </div>
+      <Breadcrumb categories={item.categories} />
       <section className="search-item-detail">
         <div className="wrapper">
           <article className="search-item-detail__container">

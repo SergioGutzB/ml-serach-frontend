@@ -5,6 +5,7 @@ import NavHeader from './Header';
 import Search from './Search';
 import Item from './Item';
 import './ItemsList.scss';
+import Breadcrumb from './Breadcrumb';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -13,14 +14,15 @@ function useQuery() {
 function ItemsList() {
   const [results, saveResults] = useState({
     items: [],
+    categories: [],
   });
   const [query, setQuery] = useState(useQuery().get('search'));
-  const { items } = results;
+  const { items, categories } = results;
   const requestSearch = async () => {
     if (query?.length) {
       const res = await fetch(`${environment.api_url}/items?q=${query}`);
       const resJson = await res.json();
-      saveResults({ items: resJson.items || [] });
+      saveResults({ ...resJson });
     }
   };
 
@@ -38,7 +40,7 @@ function ItemsList() {
         ></Search>
       </NavHeader>
       <div className="wrapper">
-        <div className="categories">Categories > </div>
+        <Breadcrumb categories={categories} />
         <ol className="search-layout">
           {items.map((item) => (
             <li className="search-layout__item" key={item.id}>

@@ -11,6 +11,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: $size + 4px;
+  color: $base-color;
 }
 
 @mixin primary-title($weight: 500) {

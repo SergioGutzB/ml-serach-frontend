@@ -1,0 +1,24 @@
+@import '../scss/variables';
+@import '../scss/mixins.scss';
+
+.breadcrumb {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  grid-column: col-start 2 / span 10;
+  display: inline-flex;
+  &__item {
+    @include default-font();
+    color: $light-gray;
+    padding-top: $element-padding;
+    &::after {
+      content: ' > ';
+      padding: 0 5px;
+    }
+    &:last-child {
+      &::after {
+        content: '';
+      }
+    }
+  }
+}

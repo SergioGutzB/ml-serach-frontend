@@ -8,7 +8,6 @@ function Item({ item }) {
       <div className="search-card search-card--thumbnail">
         <Link
           className="search-link"
-          src={`/item/${item.id}`}
           title={item.title}
           to={`/items/${item.id}`}
           aria-label={item.title}
@@ -30,14 +29,19 @@ function Item({ item }) {
             <img
               className="search-item__shipping"
               src="/assets/ic_shipping.png"
-              srcset="/assets/ic_shipping@2x.png 2x"
+              srcSet="/assets/ic_shipping@2x.png 2x"
               alt="Envio gratis"
             />
           )}
         </div>
-        <a className="search-link" src={`/item/${item.id}`} title={item.title}>
+        <Link
+          className="search-link"
+          title={item.title}
+          to={`/items/${item.id}`}
+          aria-label={item.title}
+        >
           <h2 className="search-item__title">{item.title}</h2>
-        </a>
+        </Link>
       </div>
       <p className="search-item__state-address">{item.state_name}</p>
     </div>
