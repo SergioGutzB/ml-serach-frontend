@@ -1,0 +1,69 @@
+@import '../scss/mixins.scss';
+
+.search-item-detail {
+  &__container {
+    grid-column: col-start 2 / span 10;
+    background-color: #fff;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 32px;
+  }
+  &__images {
+    width: 100%;
+    max-width: 680px;
+    overflow: hidden;
+  }
+  &__data {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: calc(100% - 680px);
+    overflow: hidden;
+  }
+  &__condition {
+    @include default-font();
+  }
+  &__title {
+    @include primary-title(600);
+  }
+  &__price {
+    @include default-font($big-text);
+    display: flex;
+    align-items: flex-start;
+    &__symbol {
+      margin-right: 0.2em;
+    }
+    &__decimals {
+      @include default-font(24px);
+      padding-top: 4px;
+      padding-left: 2px;
+    }
+    &--small {
+      @include default-font(30px);
+    }
+  }
+  &__buy-btn {
+    background-color: $blue;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: $border-radius;
+    padding: 10px 0;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__description {
+    width: 100%;
+    max-width: 680px;
+    margin-top: $text-padding;
+    &__title {
+      @include section-title();
+    }
+    &__text {
+      @include paragraph();
+    }
+  }
+}

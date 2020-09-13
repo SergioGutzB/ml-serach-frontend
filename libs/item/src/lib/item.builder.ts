@@ -39,12 +39,11 @@ export const getItem = (detail: any, description: any): ItemDetail => {
         amount: detail.price,
         decimals: currency.decimal_places,
       },
-      picture: detail.thumbnail,
-      condition: detail.condition,
-      free_shipping: detail.shipping.free_shipping,
-      state_name: item.address.state_name,
-      sold_quantity: detail.sold_quantity,
-      description: description.plain_text,
+      picture: detail?.pictures[0].url,
+      condition: detail?.condition,
+      free_shipping: detail?.shipping.free_shipping,
+      sold_quantity: detail?.sold_quantity,
+      description: description?.plain_text,
     },
   };
 };

@@ -1,5 +1,4 @@
 @import './variables';
-
 body {
   margin: 0;
   color: $base-color;
@@ -57,6 +56,12 @@ body {
     box-sizing: content-box;
     width: 180px;
     height: 180px;
+    padding: 0 $element-padding;
+  }
+  &--picture {
+    box-sizing: content-box;
+    width: 680px;
+    height: 680px;
     padding: 0 $element-padding;
   }
 }

@@ -12,7 +12,13 @@ function NavHeader(props) {
           aria-label="Ir al contenido principal"
           role="button"
         >
-          Mercado libre Colombia - Donde Comprar y vender de todo
+          Mercado libre - Donde Comprar y vender de todo
+          <img
+            className="nav-logo__image"
+            src="/assets/Logo_ML.png"
+            srcSet="Logo_ML@2x.png 2x"
+            alt="Mercado libre - Logo"
+          />
         </a>
         {props.children}
       </div>

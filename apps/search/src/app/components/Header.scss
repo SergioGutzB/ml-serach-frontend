@@ -15,9 +15,10 @@
   height: 32px;
   overflow: hidden;
   text-indent: -999px;
-  background-image: url('/assets/Logo_ML.png');
-  background-size: 100%;
-  background-repeat: no-repeat;
+  &__image {
+    width: 44px;
+    height: auto;
+  }
 }
 
 .nav-search {

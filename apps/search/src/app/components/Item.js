@@ -1,11 +1,18 @@
 import React from 'react';
 import './Item.scss';
+import { Link } from 'react-router-dom';
 
 function Item({ item }) {
   return (
     <div className="search-item">
       <div className="search-card search-card--thumbnail">
-        <a className="search-link" src={`/item/${item.id}`} title={item.title}>
+        <Link
+          className="search-link"
+          src={`/item/${item.id}`}
+          title={item.title}
+          to={`/items/${item.id}`}
+          aria-label={item.title}
+        >
           <div className="search-image">
             <img
               className="search-image__element"
@@ -13,7 +20,7 @@ function Item({ item }) {
               alt={item.title}
             />
           </div>
-        </a>
+        </Link>
       </div>
       <div className="search-item__content">
         <div className="search-item__price">
@@ -23,11 +30,14 @@ function Item({ item }) {
             <img
               className="search-item__shipping"
               src="/assets/ic_shipping.png"
+              srcset="/assets/ic_shipping@2x.png 2x"
               alt="Envio gratis"
             />
           )}
         </div>
-        <h2 className="search-item__title">{item.title}</h2>
+        <a className="search-link" src={`/item/${item.id}`} title={item.title}>
+          <h2 className="search-item__title">{item.title}</h2>
+        </a>
       </div>
       <p className="search-item__state-address">{item.state_name}</p>
     </div>

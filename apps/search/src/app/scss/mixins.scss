@@ -1,7 +1,8 @@
 @import './variables';
-@mixin default-font($size: 14px) {
+@mixin default-font($size: $regular-text) {
   margin: 0;
   padding: 0;
+  padding-bottom: $element-padding;
   font-family: Proxima Nova, -apple-system, Helvetica Neue, Helvetica, Roboto,
     Arial, sans-serif;
   font-weight: normal;
@@ -9,30 +10,29 @@
   font-size: $size;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1;
+  line-height: $size + 4px;
 }
 
 @mixin primary-title($weight: 500) {
-  @include default-font();
-  font-size: $primary-title;
+  @include default-font($primary-title);
   font-weight: $weight;
   padding-bottom: $text-padding;
 }
 
-@mixin secondary-title() {
-  @include default-font();
-  font-size: $secondary-title;
+@mixin secondary-title($weight: 500) {
+  @include default-font($secondary-title);
+  font-weight: $weight;
   padding-bottom: $text-padding;
 }
 
 @mixin section-title() {
-  @include default-font();
-  font-size: $section-title;
-  font-weight: 600;
+  @include default-font($section-title);
+  font-weight: 500;
   padding-bottom: $text-padding;
 }
 
 @mixin paragraph {
-  @include default-font();
+  @include default-font($paragraph);
   font-size: $paragraph;
+  color: $light-gray;
 }

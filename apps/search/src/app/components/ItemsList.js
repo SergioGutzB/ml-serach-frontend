@@ -14,11 +14,8 @@ function ItemsList() {
   const [results, saveResults] = useState({
     items: [],
   });
-
   const [query, setQuery] = useState(useQuery().get('search'));
-
   const { items } = results;
-
   const requestSearch = async () => {
     if (query?.length) {
       const res = await fetch(`${environment.api_url}/items?q=${query}`);
