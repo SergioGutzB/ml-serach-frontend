@@ -7,11 +7,11 @@ import Item from './Item';
 import './ItemsList.scss';
 import Breadcrumb from './Breadcrumb';
 
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
-
 function ItemsList() {
+  const useQuery = () => {
+    return new URLSearchParams(useLocation().search);
+  };
+
   const [results, saveResults] = useState({
     items: [],
     categories: [],
@@ -37,10 +37,11 @@ function ItemsList() {
           className="nav-search"
           defaultQuery={query}
           setQuery={setQuery}
+          data-test="search-component"
         ></Search>
       </NavHeader>
-      <div className="wrapper">
-        <Breadcrumb categories={categories} />
+      <div className="wrapper" data-test="wrapper-div">
+        <Breadcrumb categories={categories} data-test="breadcrumb-component" />
         <ol className="search-layout">
           {items.map((item) => (
             <li className="search-layout__item" key={item.id}>

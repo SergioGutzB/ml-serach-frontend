@@ -4,20 +4,20 @@ import './Search.scss';
 
 function Search({ defaultQuery, setQuery }) {
   const [search, saveSearch] = useState({
-    query: defaultQuery || ''
+    query: defaultQuery || '',
   });
 
   const { query } = search;
 
   const history = useHistory();
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     saveSearch({
-      query: e.target.value
+      query: e.target.value,
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (setQuery) {
       setQuery(query);
@@ -38,6 +38,7 @@ function Search({ defaultQuery, setQuery }) {
         tabIndex="1"
         value={query}
         onChange={handleChange}
+        data-test="input"
       />
       <button type="submit" tabIndex="2" className="nav-search-btn">
         <div role="img" aria-label="Buscar" className="nav-icon-search"></div>
