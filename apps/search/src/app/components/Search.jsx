@@ -19,7 +19,7 @@ function Search({ query, setQuery, handleSubmit }) {
         tabIndex="1"
         value={query}
         onChange={handleChange}
-        data-test="input"
+        data-test="input-test"
       />
       <button type="submit" tabIndex="2" className="nav-search-btn">
         <div role="img" aria-label="Buscar" className="nav-icon-search"></div>
