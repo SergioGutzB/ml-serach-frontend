@@ -5,7 +5,7 @@ import { getCurrency } from '@ml-search/currencies';
 export const getItems = (json: any): ItemsResult => {
   return {
     author: getAuthor(),
-    categories: json.filters[0].values[0].path_from_root.map(
+    categories: json?.filters[0]?.values[0]?.path_from_root.map(
       (categorie) => categorie.name
     ),
     items: json.results.map((item) => {

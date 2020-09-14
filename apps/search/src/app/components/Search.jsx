@@ -1,28 +1,9 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import './Search.scss';
 
-function Search({ defaultQuery, setQuery }) {
-  const [search, saveSearch] = useState({
-    query: defaultQuery || '',
-  });
-
-  const { query } = search;
-
-  const history = useHistory();
-
+function Search({ query, setQuery, handleSubmit }) {
   const handleChange = (e) => {
-    saveSearch({
-      query: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (setQuery) {
-      setQuery(query);
-    }
-    history.push(`/items?search=${query}`);
+    setQuery(e.target.value);
   };
 
   return (

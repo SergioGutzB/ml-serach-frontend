@@ -62,6 +62,10 @@ describe('ItemsList', () => {
   });
 
   // test('should have proper props for Search component', () => {
+  //   const mockSetQuery = jest.fn();
+  //   React.useState = jest.fn(() => ['', mockSetQuery]);
+  //   const wrapper = setup();
+  //   const search = findByTestAttr(wrapper, 'search-component');
   //   const { result, rerender } = renderHook(() => ItemsList({ ...props }));
   //   rerender();
   //   act(() => {

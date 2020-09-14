@@ -63,6 +63,7 @@ body {
     width: 680px;
     height: 680px;
     padding: 0 $element-padding;
+    box-sizing: border-box;
   }
 }
 
@@ -77,4 +78,11 @@ body {
     height: 100%;
     width: 100%;
   }
+}
+
+.loading {
+  width: 100%;
+  color: $light-gray;
+  text-align: center;
+  padding: $element-padding;
 }
