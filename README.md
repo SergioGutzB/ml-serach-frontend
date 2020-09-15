@@ -16,7 +16,7 @@ yarn install
 
 Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-#### Build frontend project `Search`
+#### Run frontend project `Search`
 
 ```
 nx serve search
@@ -26,7 +26,9 @@ nx serve search
 yarn nx serve search
 ```
 
-#### Build Backend project `Api`
+`running in http://localhost:4200`
+
+#### Run Backend project `Api`
 
 ```
 nx serve api
@@ -35,6 +37,8 @@ nx serve api
 ```
 yarn nx serve api
 ```
+
+`run in http://localhost:3333`
 
 ## Running unit tests for Search app (ReactJs)
 
