@@ -6,10 +6,6 @@ The Search app is a site to search for articles and view the detail of the artic
 
 This project was generated using [Nx](https://nx.dev).
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="250"></p>
-
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
-
 ## Build
 
 #### Install dependencies
