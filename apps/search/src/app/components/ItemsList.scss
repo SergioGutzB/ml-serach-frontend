@@ -26,3 +26,20 @@ $border-offset: $element-padding * 2;
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .search-layout {
+    grid-column: col-start 1 / span 12;
+    &__item {
+      &::after {
+        content: '';
+        background-color: $base-background;
+        position: absolute;
+        bottom: 0px;
+        height: 1px;
+        width: calc(100% - #{$border-offset});
+        left: $border-offset / 2;
+      }
+    }
+  }
+}

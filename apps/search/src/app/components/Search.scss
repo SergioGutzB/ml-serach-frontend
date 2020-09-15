@@ -7,6 +7,8 @@ $background-input: #fff;
   padding: 8px 0px;
   display: flex;
   position: relative;
+  grid-column: col-start 3 / span 9;
+  margin-left: -20px;
 }
 
 .nav-search-input {

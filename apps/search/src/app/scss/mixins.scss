@@ -18,18 +18,30 @@
   @include default-font($primary-title);
   font-weight: $weight;
   padding-bottom: $text-padding;
+  @media only screen and (max-width: 768px) {
+    font-size: 1.1em;
+    padding-bottom: 2px;
+  }
 }
 
 @mixin secondary-title($weight: 500) {
   @include default-font($secondary-title);
   font-weight: $weight;
   padding-bottom: $text-padding;
+  @media only screen and (max-width: 768px) {
+    font-size: 0.8em;
+    padding-bottom: 2px;
+  }
 }
 
 @mixin section-title() {
   @include default-font($section-title);
   font-weight: 500;
   padding-bottom: $text-padding;
+  @media only screen and (max-width: 768px) {
+    font-size: 0.8em;
+    padding-bottom: 2px;
+  }
 }
 
 @mixin paragraph {

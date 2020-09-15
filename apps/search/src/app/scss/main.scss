@@ -25,16 +25,6 @@ body {
   grid-column: col-start / span 12;
 }
 
-@media (min-width: 500px) {
-  .content {
-    grid-column: col-start 4 / span 9;
-  }
-  nav ul {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
 .search-link {
   text-decoration: none;
   width: 100%;
@@ -60,7 +50,8 @@ body {
   }
   &--picture {
     box-sizing: content-box;
-    width: 680px;
+    width: 100%;
+    max-width: 680px;
     height: 680px;
     padding: 0 $element-padding;
     box-sizing: border-box;
@@ -85,4 +76,18 @@ body {
   color: $light-gray;
   text-align: center;
   padding: $element-padding;
+}
+
+@media only screen and (max-width: 768px) {
+  .search-card {
+    &--thumbnail {
+      width: 150px;
+      height: 150px;
+      min-width: 100px;
+    }
+    &--picture {
+      width: auto;
+      height: auto;
+    }
+  }
 }

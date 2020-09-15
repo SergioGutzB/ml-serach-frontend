@@ -61,6 +61,7 @@ function Home(props) {
 
   useEffect(() => {
     getItems();
+    document.title = `${query} -  Mercado Libre`;
   }, [request, query]);
 
   useEffect(() => {

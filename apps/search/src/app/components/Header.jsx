@@ -8,7 +8,7 @@ function NavHeader(props) {
       <div className="nav-bounds wrapper">
         <Link
           to="/"
-          className="nav-logo"
+          className="nav-header__logo"
           tabIndex="2"
           aria-label="Ir al contenido principal"
           role="button"
@@ -16,14 +16,14 @@ function NavHeader(props) {
         >
           Mercado libre - Donde Comprar y vender de todo
           <img
-            className="nav-logo__image"
+            className="nav-header__logo__image"
             src="/assets/Logo_ML.png"
-            srcSet="Logo_ML@2x.png 2x"
+            srcSet="/assets/Logo_ML@2x.png 2x"
             alt="Mercado libre - Logo"
             data-testid="logo-image-test"
           />
         </Link>
-        {props.children}
+        <div className="nav-header__search">{props.children}</div>
       </div>
     </header>
   );

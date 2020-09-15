@@ -11,14 +11,15 @@
     padding: 32px;
   }
   &__images {
-    width: 100%;
+    flex: auto;
     max-width: 680px;
     overflow: hidden;
   }
   &__data {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: auto;
+        min-width: 249px;
     max-width: calc(100% - 680px);
     overflow: hidden;
   }
@@ -64,6 +65,27 @@
     }
     &__text {
       @include paragraph();
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .search-item-detail {
+    &__container {
+      grid-column: col-start 1 / span 12;
+    }
+    &__images {
+      width: auto;
+      max-width: 680px;
+      overflow: hidden;
+    }
+    &__data {
+      width: auto;
+      max-width: 100%;
+    }
+    &__buy-btn {
+    }
+    &__description {
     }
   }
 }
