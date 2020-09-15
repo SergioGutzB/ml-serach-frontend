@@ -1,90 +1,92 @@
-# MlSearch
+# Mercado Libre Test Front - Project Ml-Search
+
+The project is a monorepo that contains two applications, search and api, built in React and NodeJs respectively.
+
+The Search app is a site to search for articles and view the detail of the article. The app consumes the api exposed by the app API which in turn consumes the public API of mercadolibre.com and works as a mildelware to adjust the structure of the data returned by the endpoins.
 
 This project was generated using [Nx](https://nx.dev).
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="250"></p>
 
 🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
-## Adding capabilities to your workspace
-
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
-
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
-
-## Generate an application
-
-Run `nx g @nrwl/react:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are sharable across libraries and applications. They can be imported from `@ml-search/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
 ## Build
+
+#### Install dependencies
+
+```
+yarn install
+```
 
 Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+#### Build frontend project `Search`
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+```
+nx serve search
+```
 
-Run `nx affected:test` to execute the unit tests affected by a change.
+```
+yarn nx serve search
+```
 
-## Running end-to-end tests
+#### Build Backend project `Api`
 
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+```
+nx serve api
+```
 
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+```
+yarn nx serve api
+```
 
-## Understand your workspace
+## Running unit tests for Search app (ReactJs)
+
+Run `nx test search` to execute the unit tests via [Jest](https://jestjs.io).
+
+Run `nx affected:search` to execute the unit tests affected by a change.
+
+## Understand workspace
 
 Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 
-## Further help
+### Structure
 
-Visit the [Nx Documentation](https://nx.dev) to learn more.
+- **apps**
+  - **api**
+    - src
+      - app
+        - items
+          - items.router.ts
+        - main.ts
+        - assets
+        - environment
+      - \*.config.ts|.js
+  - **search**
+    - src
+      - app
+        - components
+        - scss
+        - utils
+        - App.js
+      - assets
+      - environments
+      - main.tsx
+      - \*.config.ts|.js
 
-## ☁ Nx Cloud
+### Practices
 
-### Computation Memoization in the Cloud
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+- Support write code in javascript or typescript files
+  **Frontend - Search app**
+  _ Use of Sass to write css code with the BEM methodology to name class.
+  _ Use of @media queries to add responsive styles to components.
+  _ Use of flex box to help the page responsive
+  _ Use of a 12-column grid with grid-layout to create the layout with a maximum width of 1200px to contain all the views and organize the components, according to the requirements.
+  _ Use of @mixing to generate responsive sources with media queries.
+  _ Use of arial-label, alt, role attributes to add accessibility meta information.
+  _ Use of data-testid attributes to be used and called by tests.
+  _ Using `@testing-library/jest-dom|react` to create the tests
+  _ Use `useState` to store component data.
+  _ Use `useEffects` to control API calls.
+  _ Use `useEffects` to dynamically add attributes to the document like title and contribute to SEO.
+  _ Use of meta tags to contribute to SEO.
