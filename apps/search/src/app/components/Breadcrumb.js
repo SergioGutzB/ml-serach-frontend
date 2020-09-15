@@ -10,7 +10,7 @@ function Breadcrumb({ categories }) {
           className="breadcrumb__item"
           role="item-navigation"
         >
-          {categorie}
+          <span>{categorie}</span>
         </li>
       ))}
     </ul>

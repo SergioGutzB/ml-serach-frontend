@@ -8,16 +8,22 @@
   grid-column: col-start 2 / span 10;
   display: inline-flex;
   min-height: 50px;
+  flex-wrap: wrap;
+  padding: $element-padding 0;
   &__item {
     @include default-font();
     color: $light-gray;
-    padding-top: $element-padding;
-    &::after {
-      content: ' > ';
-      padding: 0 5px;
+    padding: 0;
+    span {
+      display: flex;
+      white-space: nowrap;
+      &::after {
+        content: ' > ';
+        padding: 0 5px;
+      }
     }
     &:last-child {
-      &::after {
+      span::after {
         content: '';
       }
     }

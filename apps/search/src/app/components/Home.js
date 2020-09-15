@@ -14,6 +14,7 @@ import ItemsList from './ItemsList';
 import ItemDetail from './ItemDetail';
 import { useHistory } from 'react-router-dom';
 import * as storage from '../utils/storage';
+import { Helmet } from 'react-helmet';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -70,6 +71,14 @@ function Home(props) {
 
   return (
     <>
+      <Helmet>
+        <meta
+          name="description"
+          content={`${
+            query ? 'Encuantra ' + query : ''
+          } - Tablets en Mercado Libre. Descubre la mejor forma de comprar online.`}
+        />
+      </Helmet>
       <NavHeader className="nav-header">
         <Search
           className="nav-search"
