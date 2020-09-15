@@ -8,37 +8,8 @@ const props = {
 };
 const component = render(<Search {...props} />);
 const input = component.getByLabelText('Encuentra todo lo que buscas');
-// Enzyme.configure({ adapter: new EnzymeAdapter() });
-
-const mockHistoryPush = jest.fn();
-
-// jest.mock('react-router-dom', () => ({
-//   ...jest.requireActual('react-router-dom'),
-//   useLocation: jest.fn().mockReturnValue({
-//     pathname: '/items?search=Huawei',
-//     search: 'Huawei',
-//     hash: '',
-//     state: null,
-//     key: '5nvxpbdafa',
-//   }),
-//   useHistory: () => ({
-//     push: mockHistoryPush,
-//   }),
-// }));
-
-// const component = render(<Search />);
-// const input = component.getByLabelText('Encuentra todo lo que buscas');
-//
-// const setup = (props = {}, state = null) => {
-//   return shallow(<Search {...props} />);
-// };
-
-// const findByTestAttr = (wrapper, val) => {
-//   return wrapper.find(`[data-test="${val}"]`);
-// };
 
 test('renders whithout error', () => {
-  // const wrapper = setup();
   expect(input).toBeInTheDocument();
 });
 
@@ -50,9 +21,21 @@ test('call the onChange callback handle', async () => {
   const setQuery = async (value) => {
     await expect(value).toBe('Ipad pro');
   };
-  const cop = render(<Search {...props} setQuery={setQuery} />);
+  const cop = await render(<Search {...props} setQuery={setQuery} />);
   let inp = cop.getByLabelText('Encuentra todo lo que buscas');
   expect(inp.value).toBe('Huawei');
   fireEvent.change(inp, { target: { value: 'Ipad pro' } });
   inp = await screen.findByLabelText('Encuentra todo lo que buscas');
+});
+
+test('sould  have focus the input  when render first time ', async () => {
+  const component = await render(<Search {...props} />);
+  const input = await screen.findByTestId('input-test');
+  expect(input).toHaveFocus();
+});
+
+test('sould be input value equal to Huawei from the query props ', async () => {
+  const component = await render(<Search {...props} />);
+  const input = await screen.findByTestId('input-test');
+  expect(input).toHaveValue('Huawei');
 });

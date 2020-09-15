@@ -1,18 +1,16 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import { toBeInTheDocument, toHaveClass } from '@testing-library/jest-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Home from './Home';
-
-const props = {};
-const component = render(<Home {...props} />);
 
 const mockHistoryPush = jest.fn();
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useLocation: jest.fn().mockReturnValue({
-    pathname: '/items?search=Huawei',
-    search: 'Huawei',
+    pathname: '/',
+    search: '',
     hash: '',
     state: null,
     key: '5nvxpbdafa',
@@ -22,8 +20,12 @@ jest.mock('react-router-dom', () => ({
   // }),
 }));
 
-test('renders whithout error', () => {
-  const header = component.getByText('nav-header-component');
-  screen.debug(header);
-  expect().toBeInTheDocument();
+test('renders whithout error', async () => {
+  const component = await render(
+    <Router>
+      <Home />
+    </Router>
+  );
+  const header = await component.getByTestId('nav-header-component');
+  expect(header).toBeInTheDocument();
 });

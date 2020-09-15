@@ -4,7 +4,12 @@ import { useLocation } from 'react-router-dom';
 import NavHeader from './Header';
 import Search from './Search';
 import Breadcrumb from './Breadcrumb';
-import { BrowserRouter, Switch, Route, useParams } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+} from 'react-router-dom';
 import ItemsList from './ItemsList';
 import ItemDetail from './ItemDetail';
 import { useHistory } from 'react-router-dom';
@@ -15,14 +20,14 @@ function useQuery() {
 }
 
 function Home(props) {
-  const [query, setQuery] = useState(useQuery().get('search'));
+  const [query, setQuery] = useState(useQuery().get('search') || '');
   const [request, setRequest] = useState(!!query || false);
   const [results, setResults] = useState({
     items: [],
     categories: [],
   });
   const [itemId, setItemId] = useState('');
-  const [item, setItem] = useState();
+  const [item, setItem] = useState(undefined);
   const { items, categories } = results;
 
   const getItems = async () => {
@@ -64,7 +69,7 @@ function Home(props) {
 
   return (
     <>
-      <NavHeader className="nav-header" data-test="nav-header-component">
+      <NavHeader className="nav-header">
         <Search
           className="nav-search"
           setQuery={setQuery}
@@ -72,10 +77,10 @@ function Home(props) {
           query={query}
         ></Search>
       </NavHeader>
-      <div className="wrapper" data-test="wrapper-div">
-        <Breadcrumb categories={categories} data-test="breadcrumb-component" />
+      <div className="wrapper" data-testid="wrapper-div">
+        <Breadcrumb categories={categories} />
       </div>
-      <BrowserRouter hsitory={history} forceRefresh={true}>
+      <Router hsitory={history} forceRefresh={true}>
         <Switch>
           <Route exact path="#" render={(props) => <Home {...props} />} />
           <Route
@@ -91,7 +96,7 @@ function Home(props) {
             )}
           />
         </Switch>
-      </BrowserRouter>
+      </Router>
     </>
   );
 }

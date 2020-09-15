@@ -1,77 +1,62 @@
 import React, { useState } from 'react';
-import { render } from '@testing-library/react';
-import Enzyme, { shallow } from 'enzyme';
-import EnzymeAdapter from 'enzyme-adapter-react-16';
+import { render, fireEvent, screen, getByTestId } from '@testing-library/react';
 import ItemsList from './ItemsList';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { toBeInTheDocument, toHaveClass } from '@testing-library/jest-dom';
 
-Enzyme.configure({ adapter: new EnzymeAdapter() });
-
-const mockHistoryPush = jest.fn();
-
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useLocation: jest.fn().mockReturnValue({
-    pathname: '/items?search=Huawei',
-    search: '',
-    hash: '',
-    state: null,
-    key: '5nvxpbdafa',
-  }),
-  useHistory: () => ({
-    push: mockHistoryPush,
-  }),
-}));
 describe('ItemsList', () => {
   const props = {
-    history: {
-      length: 17,
-      action: 'POP',
-    },
-    location: {
-      pathname: '/items',
-      search: '?search=Huawei',
-      hash: '',
-      key: 'crwldr',
-    },
-    match: {
-      path: '/items',
-      url: '/items',
-      isExact: true,
-      params: '{}',
-    },
-    useLocation: () => 'Huawei',
-  };
-
-  const component = render(<ItemsList {...props} />);
-
-  const setup = (state = null) => {
-    return shallow(<ItemsList {...props} />);
-  };
-
-  const findByTestAttr = (wrapper, val) => {
-    return wrapper.find(`[data-test="${val}"]`);
+    items: [
+      {
+        id: 'MLA875287668',
+        title: 'Xiaomi Redmi 8a Dual Sim 64 Gb Azul Océano 4 Gb Ram',
+        price: {
+          currency: '$',
+          amount: 34500,
+          decimals: 2,
+        },
+        picture:
+          'http://http2.mlstatic.com/D_685302-MLA40448913585_012020-I.jpg',
+        condition: 'new',
+        free_shipping: true,
+        state_name: 'Misiones',
+      },
+      {
+        id: 'MLA837378807',
+        title: 'Xiaomi Black Shark Dual Sim 64 Gb Black 6 Gb Ram',
+        price: {
+          currency: '$',
+          amount: 89990,
+          decimals: 2,
+        },
+        picture:
+          'http://http2.mlstatic.com/D_982344-MLA32994297777_112019-I.jpg',
+        condition: 'new',
+        free_shipping: true,
+        state_name: 'Capital Federal',
+      },
+    ],
   };
 
   test('renders whithout error', () => {
-    const mockSetQuery = jest.fn();
-    React.useState = jest.fn(() => ['', mockSetQuery]);
-    const wrapper = setup();
-    const search = findByTestAttr(wrapper, 'search-component');
-    const queryState = wrapper.results;
-    expect(search.length).toBe(1);
+    const component = render(
+      <Router>
+        <ItemsList {...props} />
+      </Router>
+    );
+    const list = component.getByTestId('item-list-test');
+    expect(list).toBeInTheDocument();
   });
 
-  // test('should have proper props for Search component', () => {
-  //   const mockSetQuery = jest.fn();
-  //   React.useState = jest.fn(() => ['', mockSetQuery]);
-  //   const wrapper = setup();
-  //   const search = findByTestAttr(wrapper, 'search-component');
-  //   const { result, rerender } = renderHook(() => ItemsList({ ...props }));
-  //   rerender();
-  //   act(() => {
-  //     // result.current.setQuery('Huawei');
-  //   });
-  //   console.log(result.current);
-  //   expect(result.current.query).toBe('Huawei');
-  // });
+  test('should render all item elements from items props', async () => {
+    const component = await render(
+      <Router>
+        <ItemsList {...props} />
+      </Router>
+    );
+    const list = await screen.findAllByRole('item');
+    const firstElement = await screen.findByTestId('MLA875287668');
+    expect(firstElement).toBeInTheDocument();
+    expect(list.length).toBe(2);
+  });
 });
