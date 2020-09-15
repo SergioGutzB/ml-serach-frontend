@@ -77,16 +77,16 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 ### Practices
 
 - Support write code in javascript or typescript files
-  **Frontend - Search app**
-  _ Use of Sass to write css code with the BEM methodology to name class.
-  _ Use of @media queries to add responsive styles to components.
-  _ Use of flex box to help the page responsive
-  _ Use of a 12-column grid with grid-layout to create the layout with a maximum width of 1200px to contain all the views and organize the components, according to the requirements.
-  _ Use of @mixing to generate responsive sources with media queries.
-  _ Use of arial-label, alt, role attributes to add accessibility meta information.
-  _ Use of data-testid attributes to be used and called by tests.
-  _ Using `@testing-library/jest-dom|react` to create the tests
-  _ Use `useState` to store component data.
-  _ Use `useEffects` to control API calls.
-  _ Use `useEffects` to dynamically add attributes to the document like title and contribute to SEO.
-  _ Use of meta tags to contribute to SEO.
+  - **Frontend - Search app**
+    - Use of Sass to write css code with the BEM methodology to name class.
+    - Use of @media queries to add responsive styles to components.
+    - Use of flex box to help the page responsive
+    - Use of a 12-column grid with grid-layout to create the layout with a maximum width of 1200px to contain all the views and organize the components, according to the requirements.
+    - Use of @mixing to generate responsive sources with media queries.
+    - Use of arial-label, alt, role attributes to add accessibility meta information.
+    - Use of data-testid attributes to be used and called by tests.
+    - Using `@testing-library/jest-dom|react` to create the tests
+    - Use `useState` to store component data.
+    - Use `useEffects` to control API calls.
+    - Use `useEffects` to dynamically add attributes to the document like title and contribute to SEO.
+    - Use of meta tags to contribute to SEO.
